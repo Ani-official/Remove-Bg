@@ -1,12 +1,12 @@
 import crypto from 'crypto';
 import userModel from '../models/userModel.js';
 
-// API Controller function to manage clerk user with database
-// http://localhost:4000/api/user/webhooks
 
 const clerkWebhooks = async (req, res) => {
     
     try {
+        console.log(req.body);
+
         // Get the webhook secret
         const webhookSecret = process.env.CLERK_WEBHOOK_SECRET;
 
@@ -39,8 +39,16 @@ const clerkWebhooks = async (req, res) => {
                     lastName: data.last_name,
                     photo: data.image_url,
                 }
-                await userModel.create(userData)
-                res.json({})
+
+                try {
+                    const user = await userModel.create(userData);
+                    console.log(user);
+                    res.json({})
+
+                } catch (error) {
+                    console.log(error);
+                    res.json({ success: false, message: error.message })
+                }
 
                 break;
             }
@@ -51,14 +59,29 @@ const clerkWebhooks = async (req, res) => {
                     lastName: data.last_name,
                     photo: data.image_url,
                 }
-                await userModel.findOneAndUpdate({ clerkId: data.id }, userData)
-                res.json({})
+
+                try {
+                    const user = await userModel.findOneAndUpdate({ clerkId: data.id }, userData);
+                    console.log(user);
+                    res.json({})
+
+                } catch (error) {
+                    console.log(error);
+                    res.json({ success: false, message: error.message })
+                }
 
                 break;
             }
             case "user.deleted": {
-                await userModel.findOneAndDelete({ clerkId: data.id })
-                res.json([])
+                try {
+                    const user = await userModel.findOneAndDelete({ clerkId: data.id });
+                    console.log(user);
+                    res.json([])
+
+                } catch (error) {
+                    console.log(error);
+                    res.json({ success: false, message: error.message })
+                }
 
                 break;
             }
