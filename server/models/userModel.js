@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     photo: {type:String, required:true},
     firstName: {type:String},
     lastName: {type:String},
-    creditBalace: {type: Number, default:5},
+    creditBalance: {type: Number, default:5},
 })
 
 const userModel = mongoose.models.user || mongoose.model("user",userSchema)
