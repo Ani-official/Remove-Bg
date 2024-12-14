@@ -71,19 +71,42 @@ const clerkWebhooks = async (req, res) => {
 
 // API controller function to get user availiable credits data
 
+
 const userCredits = async (req, res) => {
     try {
-        const { clerkId } = req.body
 
-        const userData = await userModel.findOne({ clerkId })
+        
+        const { clerkId } = req.body;
+        console.log(clerkId)
 
-        res.json({ success: true, credits: userData.creditBalance })
+        // Check if clerkId is provided
+        if (!clerkId) {
+            return res.status(400).json({ success: false, message: "Clerk ID is required" });
+        }
+
+        // Find user by clerkId
+        const userData = await userModel.findOne({ clerkId });
+
+        // Check if user was found
+        if (!userData) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        // Send the response with user credits
+        return res.json({ success: true, credits: userData.creditBalance });
 
     } catch (error) {
-        console.log(error.message);
-        res.json({ success: false, message: error.message })
+        console.error(error.message);
+        
+        // Ensure the response is not sent if headers are already sent
+        if (!res.headersSent) {
+            return res.status(500).json({ success: false, message: "Server error" });
+        }
     }
-}
+};
 
-export { clerkWebhooks, userCredits}
+
+
+export { clerkWebhooks, userCredits };
+
 
