@@ -31,6 +31,7 @@ const clerkWebhooks = async (req, res) => {
                 }
                 await userModel.create(userData)
                 res.json({})
+                
 
                 break;
             }
