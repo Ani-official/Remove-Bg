@@ -24,13 +24,13 @@ const Navbar = () => {
       </Link>
       {isSignedIn ? (
         <div className="flex items-center gap-2 sm:gap-3 ">
-          <button onClick={()=>navigate('/buy')} className="flex items-center gap-2 bg-blue-100 px-4 sm:px-7 py-1.5 sm:py-2.5 border rounded-full hover:scale-105 transition-all duration-700">
+          <button onClick={()=>navigate('/buy')} className="flex items-center gap-2 bg-transparent px-4 sm:px-7 py-1.5 sm:py-2.5 border rounded-full hover:scale-105 transition-all duration-700">
             <img className="w-5" src={assets.credit_icon} alt="" />
-            <p className="text-sm sm:text-sm font-medium text-gray-600">
+            <p className="text-sm sm:text-sm font-medium text-slate-200">
               Credits : {credit}
             </p>
           </button>
-          <p className="text-gray-600 max-sm:hidden">{user.fullName}</p>
+          <p className="text-gray-400 max-sm:hidden">Hi, {user.fullName}</p>
           <UserButton />
         </div>
       ) : (
