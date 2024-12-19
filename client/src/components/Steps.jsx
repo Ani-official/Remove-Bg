@@ -14,7 +14,7 @@ const Steps = () => {
 
                 <div>
                 <p className='text-xl font-medium text-gray-300'>Upload image</p>
-                <p className='text-sm text-neutral-500 mt-1'>This is a demo text will replace it later. <br />This is a demo..</p>
+                <p className='text-sm text-neutral-500 mt-1'>Upload the image to remove background. <br />Click on upload image button</p>
             </div>
             </div>
         </div>
@@ -27,7 +27,7 @@ const Steps = () => {
 
                 <div>
                 <p className='text-xl font-medium text-gray-300'>Remove background</p>
-                <p className='text-sm text-neutral-500 mt-1'>This is a demo text will replace it later. <br />This is a demo..</p>
+                <p className='text-sm text-neutral-500 mt-1'>The background of image is removed. <br />The image with removed background is generated</p>
             </div>
             </div>
         </div>
@@ -40,7 +40,7 @@ const Steps = () => {
 
                 <div>
                 <p className='text-xl font-medium text-gray-300'>Download image</p>
-                <p className='text-sm text-neutral-500 mt-1'>This is a demo text will replace it later. <br />This is a demo..</p>
+                <p className='text-sm text-neutral-500 mt-1'>Download the image with removed background. <br />Click on download image button.</p>
             </div>
             </div>
         </div>

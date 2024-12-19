@@ -22,10 +22,8 @@ const Header = () => {
         </h1>
 
         <p className="my-6 text-[15px] text-gray-400">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque,
-          fugit. <br className="max-sm:hidden" />
-          Officia ut, dolorem similique distinctio impedit fugit sint
-          reprehenderit error possimus incidunt cumque.
+        Remove Backgrounds Instantly and Effortlessly. <br className="max-sm:hidden" />
+          Create Stunning, Professional-Quality Images in Just Seconds!
         </p>
 
         <div>
